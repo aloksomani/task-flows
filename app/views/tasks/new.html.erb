@@ -1,0 +1,15 @@
+<%= render "layouts/navbar" %>
+
+<h1>Create a Task</h1>
+
+<%= form_for [@milestone, @task], url: tasks_path, method: "post" do |f| %>
+  <div>
+    <%= f.text_area :description %>
+  </div>
+
+  <%= f.submit "Save task" %>
+
+<% end %>
+
+
+<%= link_to "cancel", url_for(:back) %>

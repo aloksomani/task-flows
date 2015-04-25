@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  completed: false
+  percent_completed: 1.5
+  created: 2015-04-14 08:55:42
+  updated: 2015-04-14 08:55:42
+  completed: 2015-04-14 08:55:42
+  user_id: 
+
+two:
+  name: MyString
+  completed: false
+  percent_completed: 1.5
+  created: 2015-04-14 08:55:42
+  updated: 2015-04-14 08:55:42
+  completed: 2015-04-14 08:55:42
+  user_id: 

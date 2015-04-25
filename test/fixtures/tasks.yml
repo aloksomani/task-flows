@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  completed: false
+  created: 2015-04-14 09:02:11
+  updated: 2015-04-14 09:02:11
+  completed: 2015-04-14 09:02:11
+  milestone_id: 
+
+two:
+  description: MyText
+  completed: false
+  created: 2015-04-14 09:02:11
+  updated: 2015-04-14 09:02:11
+  completed: 2015-04-14 09:02:11
+  milestone_id: 

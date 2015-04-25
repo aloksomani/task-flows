@@ -1,0 +1,24 @@
+<%= render "layouts/navbar" %>
+
+<h2> <%= "These are #{current_user.name}'s projects." %> </h2>
+
+<section>  
+
+  <ul>
+
+    <% @projects.each do |project|%>
+      <li>
+        <%= link_to project.name, user_project_path(project.user, project) %>
+      </li>
+    <% end %>
+
+  </ul>
+
+
+  <h3>Add a new Project</h3>
+
+
+  <%= link_to "+ New Project", new_user_project_path %>
+
+
+</section>

@@ -1,0 +1,16 @@
+<%= render "layouts/navbar" %>
+
+<h3>Add a new Milestone</h3>
+
+<%= form_for [@project, @milestone], url: project_milestones_path, method: "post"  do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit "Save Milestone" %>
+
+<% end %>
+
+
+<%= link_to "cancel", url_for(:back) %>

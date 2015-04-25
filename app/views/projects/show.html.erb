@@ -1,0 +1,47 @@
+<%= render "layouts/navbar" %>
+
+<h1> <%= @project.name %> </h1>
+
+<%= link_to "Edit this Project", project_edit_path(@user, @project) %>
+
+<%= link_to "Delete this Project", user_project_path(@user, @project), method: :delete %>
+
+
+<section>  
+
+  <ul>
+
+    <% @milestones.each do |milestone|%>
+      <div>
+        <%= link_to(milestone.name, project_milestone_path(@user, @project, milestone)) %>
+      </div>
+
+      <div>
+        <% milestone.active_tasks.each do |task| %>
+          <li>
+            <%= form_for(task, as: :task)  do |f| %>
+              <%= task.description %>
+              <%= f.submit "Done" %>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  </ul>
+
+
+  <%= link_to "+ New Milestone", new_project_milestone_path %>
+
+
+</section>
+
+
+
+
+
+
+
+<%= link_to "Back to my Projects", user_projects_path(@user) %>
+

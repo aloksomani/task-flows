@@ -1,0 +1,15 @@
+<%= render "layouts/navbar" %>
+
+<h3>Add a new Project</h3>
+
+<%= form_for [@user, @project] do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit "Save Project" %>
+
+<% end %>
+
+<%= link_to "cancel", url_for(:back) %>
