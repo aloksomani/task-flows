@@ -16,3 +16,30 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+
+ .navbar-custom {
+  background-color: #1b3344;
+
+    .navbar-brand {
+      color: #f0f8ff;
+    }
+
+    .navbar-brand:hover, .navbar-brand:focus {
+        color: #91caf9;
+      }
+
+    .navbar-nav {
+
+      li > a {
+        color: #f0f8ff;
+      }
+
+      li > a:hover, li > a:focus {
+        background-color: #91caf9;
+        color: #1b3344;
+      }
+
+    }
+ }
