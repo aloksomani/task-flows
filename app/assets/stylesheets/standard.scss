@@ -8,7 +8,23 @@
   border-radius: 5%;
 }
 
-.form-title{
+.project {
+  border: 1px solid #91caf9;
+  background-color: #e2e5e8;
+  min-height: 50px !important;
+  line-height: 50px;
+
+  p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #357bdb;
+  }
 }
+
+.custom-column {
+  margin-bottom: 2%;
+}
+
 
 

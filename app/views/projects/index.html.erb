@@ -1,22 +1,29 @@
-<h2> <%= "These are #{current_user.name}'s projects." %> </h2>
+<div class="container">
 
-<section>  
+  <div class="text-left page-header">
+    <h1><%= "#{current_user.name}'s Projects" %></h1>
+  </div>
 
-  <ul>
+  <div class="row">  
 
-    <% @projects.each do |project|%>
-      <li>
-        <%= link_to project.name, user_project_path(project.user, project) %>
-      </li>
-    <% end %>
 
-  </ul>
+      <% @projects.each do |project|%>
+        <%= link_to user_project_path(project.user, project) do %>
+          <div class="col-sm-4 col-md-3 custom-column">
+            <div class="text-center col-md-12 project">
+              <p><%= "#{project.name}" %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+
+  </div>
 
 
   <h3>Add a new Project</h3>
 
+  <%= link_to "+ New Project", new_user_project_path, class: "btn btn-primary" %>
 
-  <%= link_to "+ New Project", new_user_project_path %>
-
-
-</section>
+</div>
