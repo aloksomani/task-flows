@@ -1,45 +1,65 @@
-<h1> <%= @project.name %> </h1>
-
-<%= link_to "Edit this Project", project_edit_path(@user, @project) %>
-
-<%= link_to "Delete this Project", user_project_path(@user, @project), method: :delete %>
+<div class="container">
 
 
-<section>  
+<!-- Start edit buttons for header object -->
+  <div class="form-group">
+    <%= link_to "Edit", project_edit_path(@user, @project), class: "btn-sm btn-primary" %>
+    <%= link_to "Delete this Project", user_project_path(@user, @project), method: :delete, class: "btn-sm btn-primary" %>
+  </div>
+<!-- End edit buttons for header object -->
 
-  <ul>
+<!-- Start of Page Header -->
+  <div class="text-left page-header custom-page-header">
 
-    <% @milestones.each do |milestone|%>
-      <div>
-        <%= link_to(milestone.name, project_milestone_path(@user, @project, milestone)) %>
-      </div>
+    <h1> <%= link_to "Projects", user_projects_path %>
+      <small><%= @project.name %></small> 
+    </h1>
 
-      <div>
-        <% milestone.active_tasks.each do |task| %>
-          <li>
-            <%= form_for(task, as: :task)  do |f| %>
-              <%= task.description %>
-              <%= f.submit "Done" %>
+  </div> 
+<!-- End of Page Header -->
+
+
+  <div class="row">  
+
+      <% @milestones.each do |milestone|%>
+
+          <div class="col-sm-4 col-md-3 custom-column">
+
+            <%= link_to project_milestone_path(@user, @project, milestone) do %>
+              <div class="text-center col-md-12 project">
+                <p><%= "#{milestone.name}" %></p>
+              </div>
             <% end %>
-          </li>
-        <% end %>
-      </div>
 
-    <% end %>
+            <div class="col-md-12">
+              <ul class="list-group">
+                <% milestone.active_tasks.each do |task| %>
+                  <%= form_for(task, as: :task)  do |f| %>
+                      <li class="list-group-item">
+                        <!-- <div> -->
 
-  </ul>
+                            <%= task.description %>
+                            <%= f.submit "Done", class: "btn btn-primary btn-xs pull-right" %>
+                        <!-- </div> -->
+                      </li>
+                  <% end %>
+
+                <% end %>
+              </ul>
+            </div>
+
+          </div>
+      <% end %>
+
+  </div>
 
 
-  <%= link_to "+ New Milestone", new_project_milestone_path %>
+  <h3>Add a new Milestone</h3>
 
+  <%= link_to "+ New Milestone", new_project_milestone_path, class: "btn btn-primary" %>
 
-</section>
+  <%= link_to "Back to my Projects", user_projects_path(@user) %>
 
+</div>
 
-
-
-
-
-
-<%= link_to "Back to my Projects", user_projects_path(@user) %>
 
