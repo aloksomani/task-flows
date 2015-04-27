@@ -1,14 +1,26 @@
-<h3>Edit your Milestone</h3>
+<div class="container">
 
-<%= form_for [@project, @milestone], url: project_milestone_path, method: "patch" do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <%= f.submit "Save Milestone" %>
-
-<% end %>
+  <div class="text-left page-header custom-page-header">
+    <h1> <%= link_to "#{@milestone.name}", project_milestone_path %>
+      <small>edit</small> 
+    </h1>
+  </div> 
 
 
-<%= link_to "cancel", url_for(:back) %>
+  <%= form_for [@project, @milestone], url: project_milestone_path, method: "patch" do |f| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+
+      <div class="form-group">
+        <%= f.label :name, class: "control-label" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Save', class: "btn btn-primary" %>
+        <%= link_to "cancel", url_for(:back), class: "btn btn-secondary" %>
+      </div>
+
+    </div>
+  <% end %>
+
+</div>

@@ -11,8 +11,8 @@
 <!-- Start of Page Header -->
   <div class="text-left page-header custom-page-header">
 
-    <h1> <%= link_to "Projects", user_projects_path %>
-      <small><%= @project.name %></small> 
+    <h1> <%= link_to "#{@project.name}", user_projects_path(@user) %>
+      <small>milestones</small> 
     </h1>
 
   </div> 
@@ -35,22 +35,23 @@
               <ul class="list-group">
                 <% milestone.active_tasks.each do |task| %>
                   <%= form_for(task, as: :task)  do |f| %>
+
                       <li class="list-group-item">
-                        <!-- <div> -->
-
-                            <%= task.description %>
-                            <%= f.submit "Done", class: "btn btn-primary btn-xs pull-right" %>
-                        <!-- </div> -->
+                            <div class="pull-left">
+                              <%= task.description %>
+                            </div>
+                            <div class="text-right">
+                              <%= f.submit "Done", class: "btn btn-primary btn-xs" %>
+                            </div>
                       </li>
-                  <% end %>
 
+                  <% end %>
                 <% end %>
               </ul>
             </div>
-
           </div>
-      <% end %>
 
+      <% end %>
   </div>
 
 
